@@ -1,0 +1,41 @@
+.home__container {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1500px;
+  flex-direction: column; /* Ensures children stack vertically */
+  align-items: center; /* Center the children horizontally */
+}
+
+.home__image {
+  width: 100%;
+  z-index: -1; /* z-index is used to stack elements on top of each other */
+  margin-bottom: -150px; /* margin-bottom is used to push below images on top of this one*/
+  -webkit-mask-image: linear-gradient(
+    /* mask-image is used to create a gradient mask */ to bottom,
+    rgba(0, 0, 0, 1),
+    /* complete colour*/ rgba(0, 0, 0, 0) /* transparent colour*/
+  );
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.home__row {
+  display: flex;
+  z-index: 1;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 100%;
+}
+
+/* .home__row:nth-child(2) .home__image {
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+
+.home__row:nth-child(3) .home__image {
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+}
+
+.home__row:nth-child(4) .home__image {
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+} */

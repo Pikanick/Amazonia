@@ -1,0 +1,40 @@
+.checkout {
+  display: flex;
+  padding: 20px;
+  background-color: white;
+  height: max-content; /* height: max-content; is used to make the container take up the height of its children */
+  flex-grow: 1; /* property specifies how much a flex item should grow relative to the rest of the flex items inside the same container */
+  flex-direction: row; /* property specifies the direction in which the flex items are placed in the flex container*/
+  margin-right: 18px;
+  margin-left: 18px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  align-items: flex-start; /* Align the top edges of the children */
+}
+
+.checkout__ad {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 0px;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkout__title {
+  margin-right: 10px;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+}
+
+.checkout__right {
+  background-color: white;
+  padding: 20px;
+  height: 100%;
+  flex-grow: 1;
+  width: 300px;
+  margin-right: 20px;
+}

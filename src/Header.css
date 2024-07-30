@@ -1,0 +1,74 @@
+.header {
+  height: 60px;
+  display: flex; /* flex is used to align the items in the center */
+  align-items: center;
+  background-color: #131921;
+  position: sticky; /* sticky is used to keep the header at the top of the page */
+  top: 0;
+  z-index: 100;
+  /* z-index is used to stack elements on top of each other*/
+}
+
+.header__logo {
+  width: 100px;
+  object-fit: contain; /* contain the image within the div */
+  margin: 0 20px; /* margin is used to push the image to the right */
+  margin-top: 18px; /* margin-top is used to push the image down */
+}
+
+.header__search {
+  display: flex;
+  flex: 1; /* flex is used to take up the remaining space */
+  align-items: center;
+  border-radius: 24px;
+}
+
+.header__searchInput {
+  height: 12px;
+  padding: 10px;
+  border: none;
+  width: 100%;
+}
+
+.header__searchIcon {
+  height: 22px;
+  padding: 5px !important; /* padding is used to push the icon away from the border.*/
+  /* !important When added to a CSS rule, it makes the rule more specific and overrides other rules that may apply to the same element. */
+  background-color: #cd9042;
+}
+
+.header__option {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+}
+
+.header__nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.header__optionLineOne {
+  font-size: 10px;
+}
+
+.header__optionLineTwo {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.header__optionBasket {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.header__BasketCount {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #f08804;
+}
