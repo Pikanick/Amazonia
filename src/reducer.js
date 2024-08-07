@@ -46,6 +46,11 @@ const reducer = (state, action) => {
                 // you use the colon (:) to assign values to object properties, not the assignment operator (=). 
                 // The assignment operator is used for assigning values to variables, not for setting properties in an object literal.
             }
+            case 'EMPTY_BASKET':
+                return {
+                    ...state, // Copy the existing state properties using the spread operator
+                    basket: []  // empty the basket by setting it to an empty array
+                }            
 
         case 'SET_USER':
             return {
