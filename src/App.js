@@ -8,7 +8,14 @@ import Login from './Login';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { auth } from './firebase';
 import { useStateValue } from './StateProvider';
+import Payment from './Payment';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import Orders from './Orders';
 
+const promise = loadStripe(
+  "pk_test_51Pi7PGRsyEjxVCg1I440gnNRT8BKQN0EpwR08XNYEGibSFmfgid5S0a9YceOal5NOUqnu0qDjgglk17FJewHGHI000i80nFD2A"
+);
 
 function App() {
 
@@ -45,6 +52,14 @@ function App() {
       <ConditionalHeader />
         <Routes>
           <Route path="/checkout" element={<Checkout />}>
+          </Route>
+          <Route path="/payment" element={
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
+          }>
+          </Route>
+          <Route path="/Orders" element={<Orders />}>
           </Route>
           <Route path="/login" element={<Login />}>
           </Route>
