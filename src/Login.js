@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import './Login.css'
-import logo from 'C:/Users/pikan/Downloads/Amazon Clone/amazon-clone/src/img/Amazon-Logo.jpeg';
+import logo from './img/Amazon-Logo.jpeg';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth, db } from './firebase';
 

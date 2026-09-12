@@ -1,6 +1,6 @@
 import React from 'react'
 import './Product.css'
-import lean from 'C:/Users/pikan/Downloads/Amazon Clone/amazon-clone/src/img/lean_startup.jpg';
+import lean from './img/lean_startup.jpg';
 import { useStateValue } from './StateProvider';
 
 function Product({id, title, image, price, rating}) {

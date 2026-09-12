@@ -11,9 +11,19 @@ const { onRequest } = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
 const express = require("express");
 const cors = require("cors");
-const stripe = require("stripe")(
-  "sk_test_51Pi7PGRsyEjxVCg1PwKZzOamE8gppbGqa8uIYeSRC7EbuddfWRuAT9JK1Bq4l1x5LWcUSez1OtkApeSABXNYUWun00pWe5oHf8"
-);
+// This used to be a hardcoded Stripe secret key committed directly to
+// source control. Firebase Functions (2nd gen) automatically loads
+// environment variables from a .env file in this directory at deploy
+// time and from the emulator locally -- see functions/.env.example.
+// That old key is public in this repo's git history now and should be
+// rotated/revoked in the Stripe dashboard regardless of this fix.
+if (!process.env.STRIPE_SECRET_KEY) {
+  throw new Error(
+      "STRIPE_SECRET_KEY is not set. Copy functions/.env.example to " +
+      "functions/.env and fill in a Stripe secret key (see README).",
+  );
+}
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 // API
 

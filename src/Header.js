@@ -1,6 +1,6 @@
 import React from 'react'
 import './Header.css'
-import headerImage from 'C:/Users/pikan/Downloads/Amazon Clone/amazon-clone/src/img/amazon_PNG11.png';
+import headerImage from './img/amazon_PNG11.png';
 import { Link } from 'react-router-dom';
 import { useStateValue } from './StateProvider';
 import { auth } from './firebase';
