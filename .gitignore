@@ -22,3 +22,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 functions/firebase-debug.log
+
+# Firebase CLI local state / emulator debug output
+.firebase/
+firebase-debug.log
+ui-debug.log
+functions/ui-debug.log

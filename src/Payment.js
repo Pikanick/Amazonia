@@ -73,17 +73,32 @@ function Payment() {
         event.preventDefault();
         setProcessing(true);
         
-        const payload = await stripe.confirmCardPayment(clientSecret, {
-            payment_method: {
-                card: elements.getElement(CardElement),
-                billing_details: {
-                    name: user?.email,
-                },
+        // stripe.confirmCardPayment() resolves with either {paymentIntent} on
+        // success or {error} on failure (e.g. a declined card) -- it does NOT
+        // reject the promise for a declined card. This used to assume
+        // paymentIntent was always present and immediately dereference
+        // paymentIntent.id/.amount/.created, which threw an uncaught
+        // TypeError on any real payment failure, leaving "processing" stuck
+        // true (button permanently disabled) and no error shown to the user.
+        try {
+            const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
+                payment_method: {
+                    card: elements.getElement(CardElement),
+                    billing_details: {
+                        name: user?.email,
+                    },
+                }
+            });
+
+            if (confirmError) {
+                setError(confirmError.message);
+                setProcessing(false);
+                return;
             }
-        }).then(({paymentIntent}) => {
+
             // paymentIntent = payment confirmation
 
-            db.collection('users')  // access the users collection in the database
+            await db.collection('users')  // access the users collection in the database
                 .doc(user?.uid)  // get the user document with the user id
                 .collection('orders')  // access the orders collection in the user document
                 .doc(paymentIntent.id)  // get the order document with the paymentIntent id
@@ -92,7 +107,7 @@ function Payment() {
                     amount: paymentIntent.amount,
                     created: paymentIntent.created
                 });
-            
+
 
             setSucceeded(true);
             setError(null);
@@ -101,10 +116,13 @@ function Payment() {
             dispatch({
                 type: 'EMPTY_BASKET'
             });
-            
+
             navigate('/orders', { replace: true });
              // replace the current URL with the new one so the user can't go back to the payment page
-        });
+        } catch (confirmError) {
+            setError(confirmError.message || "Something went wrong confirming your payment.");
+            setProcessing(false);
+        }
     };   
 
     const handleChange = event => {

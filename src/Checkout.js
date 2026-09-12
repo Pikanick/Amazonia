@@ -1,7 +1,7 @@
 import React from 'react'
 import './Checkout.css'
 import Subtotal from './Subtotal'
-import checkoutad from 'C:/Users/pikan/Downloads/Amazon Clone/amazon-clone/src/img/checkoutad.jpg';
+import checkoutad from './img/checkoutad.jpg';
 import CheckoutProduct from './CheckoutProduct';
 import { useStateValue } from './StateProvider';
 

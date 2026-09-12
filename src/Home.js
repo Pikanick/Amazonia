@@ -1,13 +1,13 @@
 import React from 'react'
 import './Home.css'
-import homeImage from 'C:/Users/pikan/Downloads/Amazon Clone/amazon-clone/src/img/home_img.jpg';
+import homeImage from './img/home_img.jpg';
 import Product from './Product';
-import lean from 'C:/Users/pikan/Downloads/Amazon Clone/amazon-clone/src/img/lean_startup.jpg';
-import Kenwood from 'C:/Users/pikan/Downloads/Amazon Clone/amazon-clone/src/img/Kenwood.jpg';
-import samsunga from 'C:/Users/pikan/Downloads/Amazon Clone/amazon-clone/src/img/samsunga.jpg';
-import echo from 'C:/Users/pikan/Downloads/Amazon Clone/amazon-clone/src/img/echo.jpg';
-import ipad from 'C:/Users/pikan/Downloads/Amazon Clone/amazon-clone/src/img/ipad.jpg';
-import samsungb from 'C:/Users/pikan/Downloads/Amazon Clone/amazon-clone/src/img/samsungb.jpg';
+import lean from './img/lean_startup.jpg';
+import Kenwood from './img/Kenwood.jpg';
+import samsunga from './img/samsunga.jpg';
+import echo from './img/echo.jpg';
+import ipad from './img/ipad.jpg';
+import samsungb from './img/samsungb.jpg';
 
 
 function Home() {
